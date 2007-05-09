@@ -1,0 +1,28 @@
+ fichier$ is the full path name of the file to be created including the extension .sc8
+ something like   fichier$ = "C:\sailcut8\junksail.sc8" if the path C:\sailcut8 is where
+     you intend to store the file
+   
+ Open fichier$ For Output As #1
+        Print #1, titre	' "Sailcut 8"
+        Print #1, Sail 	' sail name 
+        Print #1, genre1     ' "JunkSail"
+        Print #1, genre2     ' "default_2"
+        Print #1, Str$(UpLuffScrl)     ' upper luff spacing integer mm
+        Print #1, Str$(LoLuffScrl)     ' lower luff spacing integer mm
+        Print #1, Str$(LoLeechScrl) ' lower leech spacing integer mm
+        Print #1, Str$(LBattenScrl)  ' length of batten integer mm
+        Print #1, Str$(LyardScrl)     ' length of yard integer mm
+        Print #1, Str$(FootAScrl)    ' angle of foot integer degree
+        Print #1, Str$(YardAScrl)    ' angle of yard integer degree
+        
+        Print #1, Str$(Mdepth)       ' depth of profile in short decimal value
+        Print #1, Str$(RPdepth)     ' position of depth along the profile in short decimal value
+        Print #1, Str$(twistScrl)     ' twist integer degree
+        Print #1, Str$(nHpanel)      ' integer number of horizontal panels 
+        Print #1, Str$(nBpanel)	' integer number of panels in head
+        Print #1, Str$(ClothW)       ' 900   not used
+        Print #1, Str$(SeamW)      ' 50     not used  
+        Print #1, Str$(SeamT)       ' 15      not used
+        Print #1, "EOF "
+    Close #1
+    '-----
