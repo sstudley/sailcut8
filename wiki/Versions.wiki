@@ -1,4 +1,5 @@
 #summary This page describes the versions of Sailcut8 available for download.
+#labels Featured
 
 1. *sailcut8-packageV1.0.zip*
 
@@ -13,7 +14,6 @@ This is an 'under development' version of Sailcut8 that has been donated by Stev
 If you want to try this version then you must first install the original sailcut8 package (item 1. above) and then download this file (sailcut8ss.exe) into the the same directory that you used for sailcut8.  This is probably C:\Program Files\Sailcut8.
 
 Double click the sailcut8ss.exe file to start this version of sailcut8.  You may want to create your own shortcut to this file for future use.
-
 
 
 
