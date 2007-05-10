@@ -1,5 +1,25 @@
 Attribute VB_Name = "GEOMETR"
-Option Explicit  ' 30 aout 2000
+ 
+Option Explicit  
+' 17 October 2004******************************************************
+' Copyright (C) 1997-2004 Robert Lainé
+' Sailcut is a trademark registered by Robert Lainé
+' See CREDITS file for a full list of contributors.
+'
+' This program is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 2 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program; if not, write to the Free Software
+' Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+'***************************************************************************
 
 Sub CubicP(pos, a, b, c)
     ' équation de la forme  y= a + bx^2 + cx^3
@@ -108,7 +128,7 @@ Function Hauteur3D(x1#, y1#, z1#, x2#, y2#, z2#, x3#, y3#, z3#)
 
 End Function 'Hauteur3D -----------------------------------
 
-Sub Intersection(x1#, y1#, x2#, y2#, x3#, y3#, x4#, y4#, x#, y#)
+Sub Intersection(x1#, y1#, x2#, y2#, x3#, y3#, x4#, y4#, X#, Y#)
     ' Renvoi le point x,y correspondant à l'intersection
     ' de la droite passant par (x1,y1)-(x2,y2)    y=a1*X+b1
     ' avec la droite passant par (x3,y3)-(x4,y4)  y=a3*X+b3
@@ -123,46 +143,46 @@ Sub Intersection(x1#, y1#, x2#, y2#, x3#, y3#, x4#, y4#, x#, y#)
             a3 = (y4 - y3) / (x4 - x3)
             b3 = y3 - x3 * a3
             If a1 <> a3 Then 'deuxième droite inclinée
-                x = (b3 - b1) / (a1 - a3)
-                y = a1 * x + b1
+                X = (b3 - b1) / (a1 - a3)
+                Y = a1 * X + b1
               Else 'parrallèles =>indétermination
-                x = (x1 + x2 + x3 + x4) / 4
-                y = (y1 + y2 + y3 + y4) / 4
+                X = (x1 + x2 + x3 + x4) / 4
+                Y = (y1 + y2 + y3 + y4) / 4
             End If
     
           Else 'deuxième droite verticale
-            x = x3
-            y = y1 + (x3 - x1) * a1
+            X = x3
+            Y = y1 + (x3 - x1) * a1
         End If
         '-----
       Else 'première droite verticale
         If x3 <> x4 Then 'deuxième droite inclinée
             a3 = (y4 - y3) / (x4 - x3)
             b3 = y3 - x3 * a3
-            x = x1
-            y = y3 + (x1 - x3) * a3
+            X = x1
+            Y = y3 + (x1 - x3) * a3
     
           Else 'deuxième droite verticale => indétermination
-                x = (x1 + x3) / 2
-                y = (y1 + y2 + y3 + y4) / 4
+                X = (x1 + x3) / 2
+                Y = (y1 + y2 + y3 + y4) / 4
         End If
         '-----
     End If
 
 End Sub ' intersection ------------------------------------
 
-Function profileP(pos, x)
+Function profileP(pos, X)
     ' return depth value =f(x) parabolic
     ' for a profile with depth max position =pos
     ' depth is normalised to 1
-    Dim y#
+    Dim Y#
     
-    If x < 0 Or x > 1 Then
+    If X < 0 Or X > 1 Then
         profileP = 0
-    ElseIf x < pos Then
-        profileP = 1 - (1 - (x / pos)) ^ 2
+    ElseIf X < pos Then
+        profileP = 1 - (1 - (X / pos)) ^ 2
     Else
-        profileP = 1 - ((x - pos) / (1 - pos)) ^ 2
+        profileP = 1 - ((X - pos) / (1 - pos)) ^ 2
     End If
     
 End Function ' -----------------------
