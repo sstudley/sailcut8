@@ -1,6 +1,25 @@
-Attribute VB_Name = "cacul1"
-Option Explicit    ' 5 septembre 2000
+Attribute VB_Name = "calcul1"
 
+Option Explicit
+' 17 October 2004******************************************************
+' Copyright (C) 1997-2004 Robert Lainé
+' Sailcut is a trademark registered by Robert Lainé
+' See CREDITS file for a full list of contributors.
+'
+' This program is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 2 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program; if not, write to the Free Software
+' Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+'***************************************************************************
 
 Sub deplacePerp(x0, y0, x1, y1, d)
     ' calculate displacement d perpendicular to (x0,y0)-(x1,y1)
@@ -24,9 +43,9 @@ Sub deplacePerp(x0, y0, x1, y1, d)
 End Sub  '---------------------------------------- dePerp --
 
 Function directionXY(x0, y0, x1, y1)
-    ' renvoi la direction du vecteur (x0,y0)-(x1,y1) en radians
-    ' x0, y0 = origine
-    ' x1, y1 = extrémité
+    ' return direction of vector (x0,y0)-(x1,y1) in radians
+    ' x0, y0 = origin of vector
+    ' x1, y1 = eextrmity of vector
     '------
     If (x1 - x0) = 0 Then
         If y1 > y0 Then
@@ -52,12 +71,13 @@ Function directionXY(x0, y0, x1, y1)
 End Function  '--------------------------- direction ----
 
 Function distance2D(x0!, y0!, x1!, y1!)
-
+    ' return distance between 2 2D points
     distance2D = Sqr((x1 - x0) ^ 2 + (y1 - y0) ^ 2)
 
 End Function   '------------------------------------------
 
 Function distance3D(x0!, y0!, z0!, x1!, y1!, z1!)
+    ' return distance between 2 3D points
 
     distance3D = Sqr((x1 - x0) ^ 2 + (y1 - y0) ^ 2 + (z1 - z0) ^ 2)
 
@@ -68,9 +88,9 @@ Sub intermed(x10!, y10!, x20!, y20!, x30!, y30!, x12!, y12!, x23!, y23!)
     'point 1 = x10,y10
     'point 2 = x20,y20
     'point 3 = x30,y30
-    'resultats points intermediaires
-    'point 12 entre 1 et 2
-    'point 23 entre 2 et 3
+    'return intermediates points
+    'point 12 is between 1 et 2
+    'point 23 is between 2 et 3
     Dim dir13!, dir31!, dir21!, dir23!, dir0!
     Dim l13!, l21!, l23!
     Dim xi!, yi!
@@ -121,8 +141,8 @@ Dim r#, a#
 End Sub '--- Rot2D ---------------------------------------
 
 Sub transBorc(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
-    'translation du coin x2,y2 en x4,y4
-    'par déplacement d projecté dans la direction 3->2
+    'translation of corner x2,y2 into x4,y4
+    'by displacement d projected in direction point 3->2
     Dim a12! 'direction 1-2
     Dim a23! 'direction 2-3
     Dim e!
@@ -143,8 +163,8 @@ Sub transBorc(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
 End Sub  '--------------------- transBorc ----
 
 Sub transBord(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
-    'translation du coin x2,y2 en x4,y4
-    'par déplacement d projecté dans la direction 1->2
+    'translation of  corner x2,y2 into x4,y4
+    'by displacement d projected in direction 1->2
     Dim a12! 'direction 1-2
     Dim a23! 'direction 2-3
     Dim e!
@@ -165,10 +185,10 @@ Sub transBord(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
 End Sub '-------- transBord -------------------------------
 
 Sub transCoin(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
-    'translation du coin x2,y2 en x4,y4
-    'par déplacement d dans la bissectrice externe
-    'de l'angle 1-2-3
-    Dim a12!, a23! 'directions de 1->2 et 2->3
+    'translation of corner x2,y2 into x4,y4
+    'by displacement d in direction of external bissector
+    'of angle 1-2-3
+    Dim a12!, a23! 'directions 1->2 and  2->3
     Dim e!
     '-----
     a12 = directionXY(x1, y1, x2, y2)
