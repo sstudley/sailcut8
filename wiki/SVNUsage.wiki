@@ -1,14 +1,15 @@
 #summary Describes how the sub-version repository is organized.
 
-= Introduction =
 
-Add your content here.
+*N.B.* This page is only of interest to those users who want to view or modify the source code of Sailcut8.
 
+The svn repository is organized in the structure as recommended in the sub-version book.
 
-= Details =
+The 'trunk' currently contains the original source code from Robert Laine.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+There is a tagged version in 'tags' that identifies the original code as Sailcut8_Version_1.0.
+
+'branches' contains a copy of Steve Studley's under development version of Sailcut8 under 'sailcut88ss'.
+
+Please add comments to your updates.
 
