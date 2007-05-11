@@ -14,6 +14,7 @@ Module=mdlINI; mdlINI.bas
 Module=mdlMRU; mdlMRU.bas
 Module=mdlCompute; mdlCompute.bas
 Module=FileOutputs; FileOutputs.bas
+ResFile32="sailcut8.RES"
 IconForm="Menu1"
 Startup="Menu1"
 HelpFile=""

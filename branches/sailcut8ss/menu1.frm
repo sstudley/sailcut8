@@ -280,10 +280,10 @@ file$ = AppIniPathGet
 If Dir$(file$) <> "" Then
     Langue = KeyValueGet("App", "Language")
     UnitType = KeyValueGet("App", "UnitType")
-    WinHeight = KeyValueGet("Window", "Height")
-    WinWidth = KeyValueGet("Window", "Width")
-    WinTop = KeyValueGet("Window", "Top")
-    WinLeft = KeyValueGet("Window", "Left")
+    WinHeight = Val(KeyValueGet("Window", "Height"))
+    WinWidth = Val(KeyValueGet("Window", "Width"))
+    WinTop = Val(KeyValueGet("Window", "Top"))
+    WinLeft = Val(KeyValueGet("Window", "Left"))
 
     
 Else

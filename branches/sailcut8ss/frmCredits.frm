@@ -161,6 +161,7 @@ Private Sub Form_Load()
     Dim strLabelName$
     Dim strImageName$
     Dim strPicFullName$
+    Dim intID As Integer
     
     
     i = Langue
@@ -199,25 +200,25 @@ Private Sub Form_Load()
 
 strCredits(1, 0) = Lang(43, i)        ' Developers
 strCredits(2, 0) = "  Robert Laine"
-strCredits(2, 1) = " france.gif"
+strCredits(2, 1) = "103"    '"france.gif"
 strCredits(3, 0) = "  Steve Studley"
-strCredits(3, 1) = "usa.gif"
+strCredits(3, 1) = "101"    '"usa.gif"
 strCredits(4, 0) = " "
 strCredits(5, 0) = Lang(44, i)      'Translations
 strCredits(6, 0) = Lang(45, i) & " - Robert Laine"     'French
-strCredits(6, 1) = "france.gif"
+strCredits(6, 1) = "103"            '"france.gif"
 strCredits(7, 0) = Lang(46, i) & " - Robert Laine"     ' English
-strCredits(7, 1) = "uk.gif"
+strCredits(7, 1) = "108"            '"uk.gif"
 strCredits(8, 0) = Lang(48, i) & " - Tony Mels"          'Dutch
-strCredits(8, 1) = "holland.gif"
+strCredits(8, 1) = "105"            '"holland.gif"
 strCredits(9, 0) = Lang(49, i) & " - Leo Foltz"               'German
-strCredits(9, 1) = "german.gif"
+strCredits(9, 1) = "104"            '"german.gif"
 strCredits(10, 0) = Lang(51, i) & " - Terho Halme"       'Finnish
-strCredits(10, 1) = "finland.gif"
+strCredits(10, 1) = "102"           '"finland.gif"
 strCredits(11, 0) = Lang(47, i) & " - Rolf Nilsen"          'Norwegian
-strCredits(11, 1) = "norway.gif"
+strCredits(11, 1) = "106"           '"norway.gif"
 strCredits(12, 0) = Lang(50, i) & " - Joserra Mariño"   'Spanish
-strCredits(12, 1) = "spain.gif"
+strCredits(12, 1) = "107"           '"spain.gif"
 
 'create label and images
 k = lblCopyright.Top + lblCopyright.Height + 50
@@ -243,11 +244,11 @@ For j = 1 To UBound(strCredits)
     
     
 If ctlLbl.Tag <> "" Then
-    strPicFullName = App.Path & "\" & Trim(ctlLbl.Tag)
+    intID = CInt(Trim(ctlLbl.Tag))          'tag is res file id #   strPicFullName = App.Path & "\" & Trim(ctlLbl.Tag)
 
     Set ctlImg = Controls.Add("VB.Image", strImageName)
     With ctlImg
-        .Picture = LoadPicture(strPicFullName)
+        .Picture = LoadResPicture(intID, 0)         'Load Pic from res file LoadPicture(strPicFullName)
         .Left = imgIcon0.Left
         .Top = k + (ctlLbl.Height + 110) * j
         .Visible = True
