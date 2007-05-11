@@ -1,4 +1,4 @@
-#summary Describes how the sub-version repository is organized.
+#summary Describes how the subversion repository is organized.
 
 
 *N.B.* This page is only of interest to those users who want to view or modify the source code of Sailcut8.
@@ -15,7 +15,9 @@ There is a tagged version in 'tags' that identifies the original code as Sailcut
 
 ==Getting notifications of svn changes==
 
-All svn change notifications are sent to the Google group *Sailcut8-svn*.  You can subscribe to this group to receive an email copy of any changes sent directly to you.  Go to:
+All svn change notifications are sent to the Google group *Sailcut8-svn*.  You can subscribe to this group to receive an email copy of any changes sent directly to you.  
+
+Go to:
 http://groups.google.com/group/sailcut8-svn
 
 ==Finally==
