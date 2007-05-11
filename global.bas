@@ -1,7 +1,7 @@
 Attribute VB_Name = "GLOBAL"
  
 Option Explicit
-' 20 December 2004******************************************************
+' 10 May 2007******************************************************
 ' Copyright (C) 1997-2004 Robert Lainé
 ' Sailcut is a trademark registered by Robert Lainé
 ' See CREDITS file for a full list of contributors.
@@ -23,8 +23,8 @@ Option Explicit
 
 '-------------------------- definition of constants
 Global Const titre$ = "Sailcut 8"
-Global Const copyright$ = "Copyright Robert Lainé  and Steve Studley 1997-2004"
-Global Const version$ = " 20 December 2004"
+Global Const copyright$ = "Copyright Robert Lainé  and Steve Studley 1997-2007"
+Global Const version$ = " 10 May 2007"
 Global Const PI = 3.141592653589
 Global Const RAD = 57.29577951308
 Global Const timeout As Double = 35800.1
