@@ -120,82 +120,25 @@ Sub intermed(x10!, y10!, x20!, y20!, x30!, y30!, x12!, y12!, x23!, y23!)
 
 End Sub '--------------------------------------------------
 
-Sub Rot2D(xc, yc, X, Y, alfa)
+Sub Rot2D(xc, yc, x, y, alfa)
 ' xc,yc coordinates of center of rotation
 ' alfa angle of rotation
 ' X,Y coordinates of point before and then after rotation
 Dim r#, a#
 '------
-   r = Sqr((X - xc) ^ 2 + (Y - yc) ^ 2)
-   If (X - xc) = 0 Then
-        a = 1.570796326795 * Sgn(Y - yc)
+   r = Sqr((x - xc) ^ 2 + (y - yc) ^ 2)
+   If (x - xc) = 0 Then
+        a = 1.570796326795 * Sgn(y - yc)
     Else
-        a = Atn((Y - yc) / (X - xc))
+        a = Atn((y - yc) / (x - xc))
    End If
 
-   If (X - xc) < 0 Then a = a + 3.14159265359
+   If (x - xc) < 0 Then a = a + 3.14159265359
    
-   X = xc + r * Cos(a + alfa)
-   Y = yc + r * Sin(a + alfa)
+   x = xc + r * Cos(a + alfa)
+   y = yc + r * Sin(a + alfa)
 
 End Sub '--- Rot2D ---------------------------------------
 
-Sub transBorc(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
-    'translation of corner x2,y2 into x4,y4
-    'by displacement d projected in direction point 3->2
-    Dim a12! 'direction 1-2
-    Dim a23! 'direction 2-3
-    Dim e!
-    '---------
-    a12 = directionXY(x1, y1, x2, y2)
-    a23 = directionXY(x2, y2, x3, y3)
-    If (a23 - a12) <> 0 Then
-        e = d / Sin(a23 - a12)
-        x4 = x2 - e * Cos(a23)
-        y4 = y2 - e * Sin(a23)
-    
-    Else
-        x4 = x2 + d * Cos(a12)
-        y4 = y2 + d * Sin(a12)
-    
-    End If
 
-End Sub  '--------------------- transBorc ----
-
-Sub transBord(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
-    'translation of  corner x2,y2 into x4,y4
-    'by displacement d projected in direction 1->2
-    Dim a12! 'direction 1-2
-    Dim a23! 'direction 2-3
-    Dim e!
-    '----------
-    a12 = directionXY(x1, y1, x2, y2)
-    a23 = directionXY(x2, y2, x3, y3)
-    If (a23 - a12) <> 0 Then
-        e = d / Sin(a23 - a12)
-        x4 = x2 + e * Cos(a12)
-        y4 = y2 + e * Sin(a12)
-    
-    Else
-        x4 = x2 + d * Cos(a12)
-        y4 = y2 + d * Sin(a12)
-    
-    End If
-
-End Sub '-------- transBord -------------------------------
-
-Sub transCoin(x1!, y1!, x2!, y2!, x3!, y3!, d!, x4!, y4!)
-    'translation of corner x2,y2 into x4,y4
-    'by displacement d in direction of external bissector
-    'of angle 1-2-3
-    Dim a12!, a23! 'directions 1->2 and  2->3
-    Dim e!
-    '-----
-    a12 = directionXY(x1, y1, x2, y2)
-    a23 = directionXY(x2, y2, x3, y3)
-    e = d * Tan((a23 - a12) / 2)
-    x4 = x2 + d * Cos(a12 - 1.570796326795) + e * Cos(a12)
-    y4 = y2 + d * Sin(a12 - 1.570796326795) + e * Sin(a12)
-    
-End Sub  '------------------- transCoin ------------------
 

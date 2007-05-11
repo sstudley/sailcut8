@@ -801,10 +801,10 @@ Private Sub chkBatten()
     If LBattenScroll.value < LoLuffScroll.value Then
         LBattenScroll.value = LoLuffScroll.value
         infoDirty = True
-        label1(4).BackColor = vbYellow
+        Label1(4).BackColor = vbYellow
         '-----
     Else
-        label1(4).BackColor = vbWindowBackground
+        Label1(4).BackColor = vbWindowBackground
         '-----
     End If
 
@@ -829,22 +829,22 @@ Private Sub CheckFlags()
 Dim i%
     ' reset label colors
     For i = 1 To 13
-        label1(i).BackColor = vbWindowBackground
+        Label1(i).BackColor = vbWindowBackground
     Next i
     If SailStyle = 0 Then
         'check if top of lower panels angle is ok
-        If AngleMaxOK = 1 Then label1(13).BackColor = vbYellow
-        If AngleMaxOK = 2 Then label1(13).BackColor = vbRed
+        If AngleMaxOK = 1 Then Label1(13).BackColor = vbYellow
+        If AngleMaxOK = 2 Then Label1(13).BackColor = vbRed
         
         If AngleDir = False Then
-            If label1(13).BackColor = vbRed Then
-                label1(2).BackColor = vbRed
-                label1(3).BackColor = vbRed
+            If Label1(13).BackColor = vbRed Then
+                Label1(2).BackColor = vbRed
+                Label1(3).BackColor = vbRed
               
               Else
-                label1(13).BackColor = vbYellow
-                label1(2).BackColor = vbYellow
-                label1(3).BackColor = vbYellow
+                Label1(13).BackColor = vbYellow
+                Label1(2).BackColor = vbYellow
+                Label1(3).BackColor = vbYellow
                 
             End If
         End If
@@ -852,9 +852,9 @@ Dim i%
     
     If YardReset = True Then YardAScroll.value = AYard
     If UpLeechGood = False Then
-        label1(12).BackColor = vbYellow
-        label1(1).BackColor = vbYellow
-        label1(5).BackColor = vbYellow
+        Label1(12).BackColor = vbYellow
+        Label1(1).BackColor = vbYellow
+        Label1(5).BackColor = vbYellow
     End If
     
 
@@ -1043,15 +1043,15 @@ Private Sub dessinPlan()
     ' draw sail
     Dim couleur As Long
     Dim n, i As Integer
-    Dim X, Y As Single
+    Dim x, y As Single
     
 '----- draw profile below sail
     Picture1.DrawWidth = 1
     Picture1.PSet (xo, 50)
     For i = 0 To 50
-        X = i / 50
-        Y = Mdepth(0) * LBatten * profileP(RPdepth, X)
-        Picture1.Line -(xo + (LBatten * X) * ks, 50 + Y * ks), RGB(0, 127, 0)
+        x = i / 50
+        y = Mdepth(0) * LBatten * profileP(RPdepth, x)
+        Picture1.Line -(xo + (LBatten * x) * ks, 50 + y * ks), RGB(0, 127, 0)
     Next i
         Picture1.Line -(xo, 50), RGB(0, 0, 0)
         
@@ -1445,7 +1445,7 @@ Private Sub form_activate()
             End If
         
         For j = 1 To 13
-            label1(j).Caption = Lang(10 + j, i)
+            Label1(j).Caption = Lang(10 + j, i)
             Text1(j).Text = SCVars(j)
         Next j
         
@@ -1548,14 +1548,14 @@ Private Sub Form_Resize()
     
 For i = 1 To 13
       
-    With label1(i)
+    With Label1(i)
         .Left = p1  'Upper Luff width
         .Width = 1700
         .Top = intLabelTop
         .Height = 375
     End With
     
-    intLabelTop = intLabelTop + label1(i).Height + 20
+    intLabelTop = intLabelTop + Label1(i).Height + 20
     
     
 Next i
@@ -1671,7 +1671,7 @@ With NBpanelScroll      ' number of lower panels
 End With
 
 If SailStyle = 1 Then       ' if van lorn style
-    With label1(14)
+    With Label1(14)
         .Left = p1  'Upper Luff width
         .Width = 1700
         .Top = intLabelTop
@@ -1680,12 +1680,12 @@ If SailStyle = 1 Then       ' if van lorn style
         .Caption = "Foot / Luff :"
     End With
 Else
-    label1(14).Visible = False
+    Label1(14).Visible = False
 End If
     
 
 With Develop
-    .Left = label1(13).Left
+    .Left = Label1(13).Left
     .Width = 1550
     .Height = 450
     .Top = Picture1.Top + Picture1.Height - 550
@@ -2121,7 +2121,7 @@ End Sub
 Private Sub NBpanelScroll_Change()
     
     infoDirty = True
-    label1(13).BackColor = vbWindowBackground
+    Label1(13).BackColor = vbWindowBackground
     nBpanel = NBpanelScroll.value
     
     If Me.Visible And Not infoRead Then form_activate
@@ -2236,9 +2236,9 @@ For i = 1 To 14
         Case 1 To 5
 
              With Text1(i)
-                .Left = label1(i).Left + label1(i).Width + 50
-                .Top = label1(i).Top
-                .Height = label1(i).Height / 2
+                .Left = Label1(i).Left + Label1(i).Width + 50
+                .Top = Label1(i).Top
+                .Height = Label1(i).Height / 2
                 .Width = 1000
                 .Text = UnitConvert(SCVars(i), j)
             End With
@@ -2246,9 +2246,9 @@ For i = 1 To 14
         Case 6 To 7
 
              With Text1(i)
-                .Left = label1(i).Left + label1(i).Width + 50
-                .Top = label1(i).Top
-                .Height = label1(i).Height / 2
+                .Left = Label1(i).Left + Label1(i).Width + 50
+                .Top = Label1(i).Top
+                .Height = Label1(i).Height / 2
                 .Width = 1000
                 .Text = SCVars(i) & UnitCaption(i, j)
             End With
@@ -2257,9 +2257,9 @@ For i = 1 To 14
         Case 8
 
              With Text1(i)
-                .Left = label1(i).Left + label1(i).Width + 50
-                .Top = label1(i).Top
-                .Height = label1(i).Height / 2
+                .Left = Label1(i).Left + Label1(i).Width + 50
+                .Top = Label1(i).Top
+                .Height = Label1(i).Height / 2
                 .Width = 1000
                 .Text = UnitConvertA(SCVars(i), j) & UnitCaption(i, j)
             End With
@@ -2267,9 +2267,9 @@ For i = 1 To 14
         Case 9 To 13
 
              With Text1(i)
-                .Left = label1(i).Left + label1(i).Width + 50
-                .Top = label1(i).Top
-                .Height = label1(i).Height / 2
+                .Left = Label1(i).Left + Label1(i).Width + 50
+                .Top = Label1(i).Top
+                .Height = Label1(i).Height / 2
                 .Width = 1000
                 .Text = SCVars(i) & UnitCaption(i, j)
             End With
@@ -2278,9 +2278,9 @@ For i = 1 To 14
             
             If SailStyle = 1 Then
                 With Text1(i)
-                    .Left = label1(i).Left + label1(i).Width + 50
-                    .Top = label1(i).Top
-                    .Height = label1(i).Height / 2
+                    .Left = Label1(i).Left + Label1(i).Width + 50
+                    .Top = Label1(i).Top
+                    .Height = Label1(i).Height / 2
                     .Width = 1000
                     .Visible = True
                     .Text = Format(LBatten / ((nBpanel + 1) * LoLuff), "#0.0##")
@@ -2300,7 +2300,7 @@ End Sub 'ChangeUnitType-----------------------------------------------
 Private Sub SailStyleChange()
    
    If SailStyle = 1 Then
-        label1(1).Visible = False
+        Label1(1).Visible = False
         Text1(1).Visible = False
         UpLuffScroll.Visible = False
         
@@ -2313,16 +2313,21 @@ Private Sub SailStyleChange()
         NHpanelScroll.Enabled = False
         
    Else
-        label1(1).Visible = True
+        Label1(1).Visible = True
         Text1(1).Visible = True
         UpLuffScroll.Visible = True
-'
-'        LoLeechScroll.value = LoLuffScroll.value
-'        LoLeechScroll.Enabled = True
-'
-'        LYardScroll.value = LBattenScroll.value
-'        LYardScroll.Enabled = True
-'
+
+        LoLeechScroll.value = LoLeech
+        LoLeechScroll.Enabled = True
+
+        LYardScroll.value = LYard
+        LYardScroll.Enabled = True
+        
+        nHpanel = 2
+        NHpanelScroll.value = nHpanel
+        NHpanelScroll.Enabled = True
+        
+
 
     End If
    
